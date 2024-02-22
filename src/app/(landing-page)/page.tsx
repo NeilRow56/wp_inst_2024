@@ -1,7 +1,12 @@
+import LoginButton from '@/components/auth/LoginButton'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { Poppins } from 'next/font/google'
 
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
+const font = Poppins({
+  subsets: ['latin'],
+  weight: ['600'],
+})
 
 export default function Home() {
   // const { userId } = auth()
@@ -11,15 +16,22 @@ export default function Home() {
     <section className="flex h-screen items-center justify-center bg-background">
       <div className="relative mx-auto w-full max-w-7xl items-center px-5 py-12 md:px-12 lg:px-16">
         <div className="mx-auto max-w-3xl text-center">
-          <div>
-            <span className="w-auto rounded-full bg-secondary px-6 py-3">
-              <span className="text-sm font-medium text-primary">
-                Landing Page
+          <div className="gap-8">
+            <div className="mb-8">
+              <span className=" w-auto rounded-full bg-secondary px-6 py-3">
+                <span className="text-sm font-medium text-primary">
+                  Landing Page
+                </span>
               </span>
-            </span>
+            </div>
 
-            <h1 className="mt-8 text-3xl font-extrabold tracking-tight lg:text-6xl">
-              WpInst
+            <h1
+              className={cn(
+                'text-6xl font-semibold drop-shadow-md',
+                font.className
+              )}
+            >
+              🔐 Online Working Papers
             </h1>
             <p className="mx-auto mt-8 max-w-xl text-base text-secondary-foreground lg:text-xl">
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -28,9 +40,11 @@ export default function Home() {
           </div>
 
           <div className="mx-auto mt-10 flex max-w-sm justify-center">
-            <Button asChild>
-              <Link href="/sign-up">Sign in</Link>
-            </Button>
+            <LoginButton>
+              <Button variant="default" size="lg">
+                Sign In
+              </Button>
+            </LoginButton>
           </div>
         </div>
       </div>
