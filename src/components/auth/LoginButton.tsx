@@ -16,7 +16,7 @@ const LoginButton = ({
   const router = useRouter()
 
   const onClick = () => {
-    router.push('/auth/login')
+    router.push('/auth/register')
   }
 
   // mode is current set above to the default of 'redirect' as we do not yet have modal
